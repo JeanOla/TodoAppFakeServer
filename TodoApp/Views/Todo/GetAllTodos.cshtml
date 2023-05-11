@@ -1,0 +1,37 @@
+﻿@model List<todofakeviewmodel>
+
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<H1>Get All Todos</H1>
+
+<a asp-action="Create" asp-controller="Todo">Add Todo</a>
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+            <th scope="col">completed</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach(var todo in Model){
+        <tr>
+          <th scope="row">@todo.Id</th>
+          <td>@todo.title</td>
+          <td>@todo.completed</td>
+          <td><a asp-controller="Todo" asp-action="Details" asp-route-Id="@todo.Id">View</a></td>
+                <td><a asp-controller="Todo" asp-action="Update" asp-route-Id="@todo.Id">Edit</a></td>
+                <td><a asp-controller="Todo" asp-action="Delete" asp-route-Id="@todo.Id">Delete</a></td>
+        </tr>
+    }
+  </tbody>
+</table>

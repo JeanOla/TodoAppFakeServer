@@ -1,0 +1,35 @@
+﻿@model todofakeviewmodel
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<h1> Create Todo</h1>
+
+<!-- Model oninvalid errors to be displayed --> 
+
+
+
+<form method="post" asp-action="Create" asp-controller="Todo" > <!-- need of form element in HTML 5-->
+   <div asp-validation-summary="All" class="text-danger" ></div>
+    <div>
+        <label asp-for="title"></label>
+        <input asp-for="title"/> 
+        <span asp-validation-for="title" class="text-danger"></span>
+    </div>
+     <div>
+        <label asp-for="completed" class="control-label"></label>
+        <select asp-for="completed" class="form-control">
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+        </select>
+    </div>
+@*     <div>
+        <label asp-for="Age"></label>
+        <input asp-for="Age"/> 
+    </div>*@
+
+    <button type="submit">Send</button>
+</form>
